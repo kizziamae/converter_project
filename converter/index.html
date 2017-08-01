@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="description" content="Convert between the metric and imperial system for speed, length, temperature or weight. Each conversion is added to a notepad and can then be removed.">
+	
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <script src='scripts/jquery-1.7.2.min.js'></script>
+	    <script src='scripts/script.js'></script>
+        <script src='scripts/bootstrap.min.js'></script>
+		<title>Imperial / Metric Converter for speed, length, temperature and weight</title>
+		<script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-34379238-1']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+
+	</script>
+	</head>
+	<body>
+
+		
+		<div class="container"> 
+			<div id="Nav">
+				  	  <a class="Temp">Temperature</a>
+				  	  <a class="Speed">Velocity/Speed</a>
+				  	  <a class="Length">Length</a>
+				  	  <a class="Weight">Weight</a>
+			</div>
+			<div id="Main">
+			 	
+                 <div id="Temp" class="Main">
+					<h1>Temperature</h1>
+			 
+					<form class="form-horizontal" name="Temperature">
+			 	   		<div class="control-group">
+                            <label class="control-label" for="temp">Temperature:</label>
+    			 	   		<div class="controls">
+                                <input type="text" name="temp" id="temp" /><br>
+                            </div>
+                        </div>
+                        <div class="control-group">
+    				   		<label for="from" class="control-label">Convert to:</label>
+                            <div class="controls"> 
+        			 	   		<label class="radio inline">
+                                    <input type="radio" name="from" value="Celsius" checked>Celsius</input>
+                                </label>
+                                <label class="radio inline">
+        						    <input type="radio" name="from" value="Fahrenheit" >Fahrenheit</input><br>
+                                </label>
+        				   	</div>
+                        </div>       
+                        
+                        <div class="control-group">
+                            <div class="controls">
+                                <input type="text" name="result"/>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <div class="controls">
+						        <input type="button" value="Go" class="btn-primary" onclick="tempConvert()">
+                            </div>
+                        </div> 
+					</form>
+			 	</div>
+			 
+				<div id="Speed" class="Main">
+			 		<h1>Speed</h1>
+			 
+			 		<form class="form-horizontal" name="Speed">
+			 	   	    <div class="control-group">
+                            <label class="control-label" for="temp">Speed:</label>
+    			 	   	    <div class="controls">
+                                <input type="text" name="speed" id="speed"  /><br>
+                            </div>
+				   		</div>
+                        
+                        <div class="control-group">
+                        <label class="control-label" for="from">Convert to:</label>
+                            <div class="controls">
+                                <label class="radio inline">
+                                    <input type="radio" name="from" value="Mph" checked/>Mph
+                                </label>
+                                <label class="radio inline">
+        						    <input type="radio" name="from" value="Kph" />Kph<br>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="control-group">
+				   		    <div class="controls">
+                               <input type="text" name="result"/>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <div class="controls">
+						        <input type="button" value="Go" class="btn-primary" onclick="speedConvert()">
+                            </div>
+					    </div>
+					</form>
+			 	</div>
+                 
+			 	<div id="Length" class="Main">
+			 		<h1>Length / Distance</h1>
+			    	
+			    	<form class="form-horizontal" name="Length">
+                        <div class="control-group">
+                            <label class="control-label" for="ToConvert">Convert:</label>
+                            <div class="controls">
+			 			        <input type="text" name="ToConvert" id="ToConvert" /><br>
+                            </div>
+                         </div>
+                        
+                        <div class="control-group">
+    						<label class="control-label" for="From">From:</label>
+    						<div class="controls">
+                                <Select id="From">
+        				  			<optgroup label="Metric">
+        				    			<option value="0.001" label="Millimeter">Millimeter</option>
+        				    			<option value="0.01" label="Centermeter">Centermeter</option>
+        				    			<option value="1" label="Meter">Meter</option>
+        				    			<option value="1000" label="Kilometer">Kilometer</option>
+        				  			</optgropup>
+        				  			<optgroup label="Imperial">
+        				    			<option value="0.3048/12" label="Inch">Inch</option>
+        				    			<option value="0.3048" label="Foot">Foot</option>
+        				    			<option value="0.9144" label="Yard">Yard</option>
+        				    			<option value="1609.344" label="Mile">Mile</option>
+        				  			</optgroup>
+        						</Select>
+                            </div>
+                        </div>
+						
+                        <div class="control-group">
+                        <label class="control-label" for="To">To:</label>
+                            <div class="controls">
+        						<Select name="To" id="To">
+        				  			<optgroup label="Metric">
+        				    			<option value="0.001" label="Millimeter">Millimeter</option>
+        				    			<option value="0.01" label="Centermeter">Centermeter</option>
+        				    			<option value="1" label="Meter">Meter</option>
+        				    			<option value="1000" label="Kilometer">Kilometer</option>
+        				  			</optgroup>
+        				  			<optgroup label="Imperial">
+        				    			<option value="0.0254" label="Inch">Inch</option>
+        				    			<option value="0.3048" label="Foot">Foot</option>
+        				    			<option value="0.9144" label="Yard">Yard</option>
+        				    			<option value="1609.344" label="Mile">Mile</option>
+        				  			</optgroup>
+        						</Select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+						    <div class="controls">
+                                <input type="text" name="Result" id="Result" />
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <div class="controls">
+						        <input type="button" name="Go" id="Go" value="Go" class="btn-primary" onclick="lengthConvert()" />
+			    	        </div>
+                        </div>
+    		    	    
+			    	</form>
+			 	</div>
+			 	
+			 	<div id="Weight" class="Main">
+			 		<h1>Weight</h1>
+			 		<form class="form-horizontal" name="Weight">
+                        <div class="control-group">
+                            <label class="control-label" for="Convert">Convert:</label>
+			 	            <div class="controls">
+                                <input type="text" name="ToConvert" id="WeightToConvert" />
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+							<label class="control-label" for="From">From</label>
+							<div class="controls">
+                                <Select name="From" id="WeightFrom">
+    				  				<optgroup label="Metric">
+    				    				<option value="0.001">Milligram</option>
+    				    				<option value="0.01">Centigram</option>
+    				    				<option value="1">Gram</option>
+    				    				<option value="1000">Kilogram</option>
+    				  				</optgropup>
+    				 				<optgroup label="Imperial">
+    				    				<option value="28.349523125">Ounce</option>
+    				    				<option value="453.59237">Pound</option>
+    				    				<option value="6350.29318">Stone</option>
+    				    				<option value="12.7005863600">Quarter</option>
+    				    				<option value="1016.0469088">Ton</option>
+    				  				</optgroup>
+    							</Select>
+                            </div>
+    					</div>
+						
+                        <div class="control-group">
+                            <label class="control-label" for="To">To:</label>
+                            <div class="controls">
+							<Select name="To" id="WeightTo">
+				  				<optgroup label="Metric">
+				    				<option value="0.001">Milligram</option>
+				    				<option value="0.01">Centigram</option>
+				    				<option value="1">Gram</option>
+				    				<option value="1000">Kilogram</option>
+				  				</optgroup>
+				  				<optgroup label="Imperial">
+				    				<option value="28.349523125">Ounce</option>
+				    				<option value="453.59237">Pound</option>
+				    				<option value="6350.29318">Stone</option>
+				    				<option value="12.7005863600">Quarter</option>
+				   	 				<option value="1016.0469088">Ton</option>
+				  				</optgroup>
+							</Select>
+                            </div>
+						</div>
+                        
+                        <div class="control-group">
+							<div class="controls">
+                                <input type="text" name="Result" id="Result" />
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+    						<div class="controls">
+							    <input type="button" name="Go" id="Go" value="Go" class="btn-primary" onclick="massConvert()" />
+    		 		        </div>
+                        </div>   
+			 		</form>
+					
+				</div>
+				<div id="Notepad">
+						<h1>Notepad</h1>
+						<div id="Notes">
+						</div>
+						<input type="button" value="Remove" id="Remove" class="btn-danger" />
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

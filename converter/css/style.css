@@ -1,0 +1,89 @@
+body {
+	 /*
+     background: white;
+     font-family: Tahoma;
+     color: #666666;
+     */
+	 }
+
+input {
+	/*background: white;*/
+    /*margin-top: 5px;*/
+	}
+
+#Wrapper {
+         background: green;
+         margin: 0px auto 0px auto;
+         max-width: 780px;
+		 }
+		 
+#Nav {
+	font-style: bold;
+	 border: 1px black solid;
+     
+     padding: 25px 10px 35px 15px;
+     background: white;
+     color: blue;
+     
+     
+		}
+		
+
+#Nav a {
+      border: 1px black solid;
+      margin: 0px 5px 0px 5px;
+      text-decoration: none;
+      color: #666666;
+	  box-shadow: 10px 10px 5px black;
+	  border-radius: 5px 10px 5px 10px
+ }
+ 
+#Nav a:hover {
+		position: relative;
+		top: -5px;
+        background: white;
+         }
+       
+.Main {
+		border: 1px black solid;
+		padding: 10px 20px 20px 20px;
+		/*height: 200px;*/
+		background: white;
+		border-radius: 10px 10px 10px 10px;
+		box-shadow: 10px 10px 5px black;
+        left: 0px;
+	}
+
+a {
+	display: inline;
+	padding: 10px 10px 10px 10px;
+	}
+	
+#Notepad {
+	position: relative;
+	border: 1px black solid;
+	padding: 20px 20px 20px 20px;
+	left: 0px;
+	background: white;
+	box-shadow: 10px 10px 5px black;
+	border-radius: 5px 10px 5px 10px;
+	
+    
+	}
+
+
+#Notes {
+	padding: 20px 20px 10px 20px;
+	margin-bottom: 20px;
+	right: 0px;
+	}
+#Remove {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin: 10px 20px 10px 10px;
+	}
+.NoteClass {
+	margin-bottom: 20px;
+	background: white;
+	}
